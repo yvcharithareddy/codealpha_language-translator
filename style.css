@@ -1,0 +1,255 @@
+/* ── RESET & BASE ────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ── MAIN CARD ───────────────────────────────── */
+.container {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* ── HEADER ──────────────────────────────────── */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #2d2d2d;
+  margin-bottom: 6px;
+}
+
+h1 span {
+  color: #667eea;
+}
+
+p {
+  text-align: center;
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+/* ── LANGUAGE ROW ────────────────────────────── */
+.lang-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.lang-group {
+  flex: 1;
+}
+
+.lang-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #333;
+  background: #fafafa;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* ── SWAP BUTTON ─────────────────────────────── */
+#swapBtn {
+  background: #667eea;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.3s;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+
+#swapBtn:hover {
+  background: #5563d4;
+  transform: rotate(180deg);
+}
+
+/* ── TEXT ROW ────────────────────────────────── */
+.text-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.text-group {
+  flex: 1;
+}
+
+.text-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+textarea {
+  width: 100%;
+  height: 180px;
+  padding: 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #333;
+  resize: vertical;
+  line-height: 1.6;
+  transition: border-color 0.2s;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* ── OUTPUT BOX ──────────────────────────────── */
+#outputBox {
+  width: 100%;
+  min-height: 180px;
+  padding: 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: #f8f8ff;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+#outputBox.has-text {
+  color: #333;
+}
+
+/* ── BUTTONS ROW ─────────────────────────────── */
+.btn-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 11px 22px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#translateBtn {
+  background: #667eea;
+  color: white;
+}
+
+#translateBtn:hover {
+  background: #5563d4;
+}
+
+#translateBtn:disabled {
+  background: #b0b8f0;
+  cursor: not-allowed;
+}
+
+#copyBtn,
+#speakBtn {
+  background: transparent;
+  color: #555;
+  border-color: #ddd;
+}
+
+#copyBtn:hover,
+#speakBtn:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+}
+
+#copyBtn:disabled,
+#speakBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#clearBtn {
+  background: transparent;
+  color: #e05555;
+  border-color: #f0d0d0;
+  margin-left: auto;
+}
+
+#clearBtn:hover {
+  background: #fff0f0;
+}
+
+/* ── ERROR BOX ───────────────────────────────── */
+#errorBox {
+  display: none;
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: #fff0f0;
+  border: 1.5px solid #f5c0c0;
+  border-radius: 10px;
+  color: #c0392b;
+  font-size: 0.9rem;
+}
+
+/* ── RESPONSIVE (mobile) ─────────────────────── */
+@media (max-width: 600px) {
+  .text-row {
+    flex-direction: column;
+  }
+
+  .lang-row {
+    flex-direction: column;
+  }
+
+  #swapBtn {
+    width: 100%;
+    border-radius: 10px;
+    height: 38px;
+  }
+
+  #clearBtn {
+    margin-left: 0;
+  }
+}
